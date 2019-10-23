@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-title>Welcome to Grocery Application</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>This application emcompasses the the week 4 assignment.</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-content padding>
+      <br><br><br>
+      <ion-list>
+        <ion-item-sliding  *ngFor="let item of items; let i = index">
+          <ion-item>
+            <ion-label>{{item.name}}</ion-label>
+            <p>{{item.quantity}}</p>
+          </ion-item>
+          <ion-item-options>
+            <ion-button (click)="removeItem(item, i)" color="primary" icon-start>
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+              Done
+            </ion-button>
+
+            <ion-button (click)="editItem(item, i)" color="secondary" icon-start>
+              <ion-icon name="create"></ion-icon>
+              Edit
+            </ion-button>
+
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <br><br>
+
+      <!-- fab placed to the top end -->
+      <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="addItem()">
+          <ion-icon name="add-circle"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+    </ion-content>
